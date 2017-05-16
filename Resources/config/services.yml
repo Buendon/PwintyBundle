@@ -1,0 +1,4 @@
+services:
+    buendon_pwinty.pwinty_service:
+        class: Buendon\PwintyBundle\Service\PwintyService
+        arguments: ['%apiType%', '%merchantId%', '%apiKey%']

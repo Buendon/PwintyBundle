@@ -1,0 +1,5 @@
+#buendon_pwinty:
+## apiType can be either 'production' or 'sandbox'
+#  apiType: 'sandbox'
+#  merchantId: 'yourMerchantId'
+#  apiKey: 'yourAPIKey'

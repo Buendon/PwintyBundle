@@ -1,6 +1,6 @@
 {
   "name" : "buendon/pwinty-bundle",
-  "description" : "Propose Symfony service in order to interact with the Pwinty API",
+  "description" : "A Symfony service in order to interact with the Pwinty API",
   "type" : "symfony-bundle",
   "authors" : [{
     "name" : "Buendon"

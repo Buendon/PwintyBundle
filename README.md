@@ -20,3 +20,7 @@ It uses the simple PHP implementation from [php-pwinty](https://github.com/Buend
 ```
 
 Once done, run ```composer update```
+
+# Warning
+
+This bundle still in construction, hence there is no official release yet.

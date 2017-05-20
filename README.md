@@ -11,15 +11,26 @@ It uses the simple PHP implementation from [php-pwinty](https://github.com/Buend
 ## Update your Symfony project composer.json
 
 ```
+    "repositories" : [{
+        "type": "vcs",
+        "url": "https://github.com/Buendon/php-pwinty"
+    }],
     ...
     "require": {
         ...
-        "buendon/pwinty-bundle": "1.0-dev"
+        "pwinty/php-pwinty" : "dev-api_2.3",
+        "buendon/pwinty-bundle": "dev-master"
     },
     ...
 ```
 
 Once done, run ```composer update```
+
+Note that you need to declare a specific GitHub repository for the php-pwinty bundle.
+
+Indeed, this one is a fork of [Pwinty/php-pwinty](https://github.com/Pwinty/php-pwinty).
+
+I need to send a push request so that the original implementation is compatible withe the 2.3 version of the Pwinty API.
 
 # Warning
 

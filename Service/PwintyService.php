@@ -85,14 +85,14 @@ class PwintyService
     }
 
     /**
-     * @param Order $order
+     * @param string $orderId
      * @param Photo $photo
      * @return Photo
      * @throws OrderException
      */
-    public function addPhoto(Order $order, Photo $photo): Photo {
+    public function addPhoto(string $orderId, Photo $photo): Photo {
         $response = $this->pwinty->addPhoto(
-            $order->getId(),
+            $orderId,
             $photo->getType(),
             $photo->getUrl(),
             $photo->getCopies(),
@@ -109,36 +109,41 @@ class PwintyService
     }
 
     /**
-     * @param Order $order
+     * @param string $orderId
      * @return SubmissionStatus
      * @throws OrderException
      */
-    public function getOrderStatus(Order $order) {
-        $response = $this->pwinty->getOrderStatus($order->getId());
+    public function getOrderSubmissionStatus(string $orderId) {
+        $response = $this->pwinty->getOrderStatus($orderId);
 
         if($response == 0) {
-            throw new OrderException("Failed to get order status with id=".$order->getId().": ".$this->pwinty->last_error);
+            throw new OrderException("Failed to get order status with id=".$orderId.": ".$this->pwinty->last_error);
         }
 
         return new SubmissionStatus($response);
     }
 
     /**
-     * @param Order $order
+     * @param string $orderId
      * @param string $status
      * @throws OrderException
      */
-    public function updateOrderStatus(Order $order, string $status) {
-        $response = $this->pwinty->updateOrderStatus($order->getId(), $status);
+    public function updateOrderStatus(string $orderId, string $status) {
+        $response = $this->pwinty->updateOrderStatus($orderId, $status);
 
         if($response == 0) {
-            throw new OrderException("Failed to update order status with id=".$order->getId()." and status ".$status.": ".$this->pwinty->last_error);
+            throw new OrderException("Failed to update order status with id=".$orderId." and status ".$status.": ".$this->pwinty->last_error);
         }
         else if(is_array($response) & array_key_exists('errorMessage', $response) && $response['errorMessage'] != null && $response['errorMessage'] != '') {
-            throw new OrderException("Failed to update order status with id=".$order->getId()." and status ".$status.": ".$response['errorMessage']);
+            throw new OrderException("Failed to update order status with id=".$orderId." and status ".$status.": ".$response['errorMessage']);
         }
     }
 
+    /**
+     * @param string $id
+     * @return Order
+     * @throws OrderException
+     */
     public function getOrder(string $id): Order {
         $response = $this->pwinty->getOrder($id);
         if($response == 0) {

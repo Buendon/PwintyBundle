@@ -116,7 +116,7 @@ class OrderTest extends AbstractTestPwinty
         $picturePath = WebTestCase::$kernel->locateResource('@BuendonPwintyBundle/Tests/Resources/DSC04353.JPG');
         $expectedPhoto->setFile($picturePath);
 
-        $photoResponse = $this->getService()->addPhoto($orderResponse, $expectedPhoto);
+        $photoResponse = $this->getService()->addPhoto($orderResponse->getId(), $expectedPhoto);
 
         echo "Update the expected photo";
         $expectedPhoto->setStatus(Photo::STATUS_OK);
@@ -125,14 +125,14 @@ class OrderTest extends AbstractTestPwinty
         $this->checkPhoto($expectedPhoto, $photoResponse, true, true);
 
         echo "Get the current order status";
-        $submissionStatusResponse = $this->getService()->getOrderStatus($orderResponse);
+        $submissionStatusResponse = $this->getService()->getOrderSubmissionStatus($orderResponse->getId());
 
         echo "Check that the order is ready to be submitted";
         $this->assertTrue($submissionStatusResponse->isValid(), "Order status should be valid");
         $this->assertEquals($orderResponse->getId(), $submissionStatusResponse->getId(), "Submission status id should be equal to the order id");
 
         echo "Submit the order";
-        $this->getService()->updateOrderStatus($orderResponse, Order::UPDATE_STATUS_SUBMITTED);
+        $this->getService()->updateOrderStatus($orderResponse->getId(), Order::UPDATE_STATUS_SUBMITTED);
 
         echo "Get the current order state from the server";
         $orderResponse = $this->getService()->getOrder($orderResponse->getId());

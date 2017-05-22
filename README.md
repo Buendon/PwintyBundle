@@ -57,7 +57,9 @@ if you don't want to be billed with the submitted orders.
 
 # Usage
 
-```
+```php
+    <?php
+    
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Buendon\PwintyBundle\Catalogue\Catalogue;
     use Buendon\PwintyBundle\Order\OrderException;

@@ -43,7 +43,7 @@ class PwintyService
     /**
      * @param $countryCode
      * @param $quality
-     * @return Catalogue
+     * @return Catalogue The catalogue for the given countryCode and quality
      * @throws CatalogueNotFoundException
      */
     public function getCatalogue($countryCode, $quality) {
@@ -66,7 +66,6 @@ class PwintyService
     public function createOrder($order) {
         $response = $this->pwinty->createOrder(
             $order->getRecipientName(),
-            null,
             $order->getAddress1(),
             $order->getAddress2(),
             $order->getAddressTownOrCity(),

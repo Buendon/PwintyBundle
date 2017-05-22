@@ -87,7 +87,7 @@ if you don't want to be billed with the submitted orders.
                 $response = $service->createOrder($order);
             }
             catch (OrderException $e) {
-                // If the createOrder call fails, it will throw an exception
+                // If the call fails, it will throw an exception
                 // Handle here the error
             }
     
@@ -103,7 +103,7 @@ if you don't want to be billed with the submitted orders.
                 $order = $service->getOrder($orderId);
             }
             catch (OrderException $e) {
-                // If the createOrder call fails, it will throw an exception
+                // If the call fails, it will throw an exception
                 // Handle here the error
             }
         }
@@ -118,7 +118,7 @@ if you don't want to be billed with the submitted orders.
                 $submissionStatus = $service->getOrderSubmissionStatus($orderId);
             }
             catch (OrderException $e) {
-                // If the createOrder call fails, it will throw an exception
+                // If the call fails, it will throw an exception
                 // Handle here the error
             }
         }
@@ -136,7 +136,7 @@ if you don't want to be billed with the submitted orders.
                 $service->addPhoto($orderId, $photo);
             }
             catch (OrderException $e) {
-                // If the createOrder call fails, it will throw an exception
+                // If the call fails, it will throw an exception
                 // Handle here the error
             }
         }
@@ -150,7 +150,7 @@ if you don't want to be billed with the submitted orders.
                 $service->updateOrderStatus($orderId, Order::UPDATE_STATUS_SUBMITTED);
             }
             catch (OrderException $e) {
-                // If the createOrder call fails, it will throw an exception
+                // If the call fails, it will throw an exception
                 // Handle here the error
             }
         }

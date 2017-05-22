@@ -26,6 +26,14 @@ Update your composer.json in your Symfony project:
     ...
 ```
 
+Update your ```AppKernel.php```
+
+```php
+    // ...
+    new \Buendon\PwintyBundle\BuendonPwintyBundle(),
+    // ...
+```
+
 Then, run ```composer update buendon/pwinty-bundle pwinty/php-pwinty```
 
 **Note that** you need to declare a specific GitHub repository for the php-pwinty bundle.

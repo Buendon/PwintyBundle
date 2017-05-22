@@ -12,7 +12,7 @@ It uses the simple PHP implementation from [php-pwinty](https://github.com/Buend
 
 Update your composer.json in your Symfony project:
 
-```
+```json
     "repositories" : [{
         "type": "vcs",
         "url": "https://github.com/Buendon/php-pwinty"
@@ -39,7 +39,7 @@ This will be done when this module will be released.
 # Configuration
 
 Edit your ```config.yml``` file and add this:
-```
+```yml
     buendon_pwinty:
         apiType: 'sandbox'
         merchantId: 'yourPwintyMerchantId'
